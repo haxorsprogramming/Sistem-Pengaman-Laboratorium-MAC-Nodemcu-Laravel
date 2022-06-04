@@ -2,17 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\C_API;
+use App\Http\Controllers\C_Home;
+use App\Http\Controllers\C_Device;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [C_Home::class, 'homepage']);
+Route::get('/beranda', [C_Home::class, 'berandapage']);
+
+Route::post('/device/status/change/proses', [C_Device::class, 'prosesChangeStatusDevice']);
+
+Route::get('/api/device/status', [C_API::class, 'cekStatusDevice']);
