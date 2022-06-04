@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Panel Sistem Keamanan Laboratorium</a>
+                <a class="navbar-brand" href="/">Security System</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -51,25 +51,12 @@
     <script>
         var server = "{{ url('') }}/";
 
-        var rSetStatusDevice = server + "device/status/change/proses";
         load_page('beranda');
+        
         function load_page(page)
         {
             $("#divUtama").html("Memuat halaman ...");
             $("#divUtama").load(server + page);
-        }
-
-        function setCommand(command)
-        {
-            confirmQuest('info', 'Konfirmasi', 'Ubah status device ...?', function (x) {setStatusConfirm(command)});
-        }
-
-        function setStatusConfirm(command)
-        {
-            let ds = {'command':command}
-            axios.post(rSetStatusDevice, ds).then(function(res){
-                console.log(res.data);
-            });
         }
         
         function pesanUmumApp(icon, title, text)

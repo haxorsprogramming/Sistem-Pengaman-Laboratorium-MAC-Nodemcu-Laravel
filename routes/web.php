@@ -12,3 +12,6 @@ Route::get('/beranda', [C_Home::class, 'berandapage']);
 Route::post('/device/status/change/proses', [C_Device::class, 'prosesChangeStatusDevice']);
 
 Route::get('/api/device/status', [C_API::class, 'cekStatusDevice']);
+
+Route::post('/api/access/id-card/cek', [C_API::class, 'cekAksesIdCard']);
+
