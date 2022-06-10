@@ -13,6 +13,8 @@ Route::get('/beranda', [C_Home::class, 'berandapage']);
 Route::post('/device/status/change/proses', [C_Device::class, 'prosesChangeStatusDevice']);
 
 Route::get('/mahasiswa', [C_Mahasiswa::class, 'dataMahasiswa']);
+Route::get('/mahasiswa/tambah', [C_Mahasiswa::class, 'tambahMahasiswa']);
+Route::post('/mahasiswa/tambah/proses', [C_Mahasiswa::class, 'proseTambahMahasiswa']);
 
 Route::get('/api/device/status', [C_API::class, 'cekStatusDevice']);
 
