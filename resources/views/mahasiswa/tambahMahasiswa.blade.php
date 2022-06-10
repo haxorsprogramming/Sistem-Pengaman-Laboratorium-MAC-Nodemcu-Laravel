@@ -55,10 +55,15 @@
                 let nim = document.querySelector("#txtNim").value;
                 let idCard = document.querySelector("#txtIdCard").value;
                 let ds = {'nama':nama, 'jk':jk, 'prodi':prodi, 'nim':nim, 'idCard':idCard}
+                if(nama === "" || nim === "" || idCard === ""){
+                    pesanUmumApp('warning', 'Fill field !!!', 'Harap isi seluruh field !!!');
+                }else{
+                    axios.post(rProsesTambah, ds).then(function(res){
+                        pesanUmumApp('success', 'Sukses', 'Sukses menambahkan data mahasiswa baru ..');
+                        load_page('mahasiswa');
+                    });
+                }
                 
-                axios.post(rProsesTambah, ds).then(function(res){
-                    console.log(res.data);
-                });
             }
         }
     });

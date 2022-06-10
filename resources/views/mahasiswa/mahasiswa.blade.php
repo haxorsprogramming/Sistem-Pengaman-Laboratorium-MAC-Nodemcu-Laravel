@@ -22,7 +22,7 @@
                 <td>{{ $mhs -> prodi }}</td>
                 <td>{{ $mhs -> kd_id_card }}</td>
                 <td>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-warning">Hapus</a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-warning" onclick="hapusProses('{{ $mhs -> kd_mahasiswa }}')">Hapus</a>
                 </td>
             </tr>
             @endforeach
@@ -31,5 +31,23 @@
 </div>
 
 <script>
+
+    var rProsesHapus = server + "mahasiswa/hapus/proses";
+
     $("#tblMhs").dataTable();
+
+    function hapusProses(kdMhs)
+    {
+        confirmQuest('info', 'Konfirmasi', 'Hapus mahasiswa ...?', function (x) {hapusConfirm(kdMhs)});
+    }
+
+    function hapusConfirm(kdMhs)
+    {
+        let ds = {'kdMhs':kdMhs}
+        axios.post(rProsesHapus, ds).then(function(res){
+            pesanUmumApp('success', 'Sukses', 'Sukses menghapus data mahasiswa ..');
+            load_page('mahasiswa');
+        });
+    }
+
 </script>

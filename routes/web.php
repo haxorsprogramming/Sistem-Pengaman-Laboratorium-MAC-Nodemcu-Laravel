@@ -14,7 +14,8 @@ Route::post('/device/status/change/proses', [C_Device::class, 'prosesChangeStatu
 
 Route::get('/mahasiswa', [C_Mahasiswa::class, 'dataMahasiswa']);
 Route::get('/mahasiswa/tambah', [C_Mahasiswa::class, 'tambahMahasiswa']);
-Route::post('/mahasiswa/tambah/proses', [C_Mahasiswa::class, 'proseTambahMahasiswa']);
+Route::post('/mahasiswa/tambah/proses', [C_Mahasiswa::class, 'prosesTambahMahasiswa']);
+Route::post('/mahasiswa/hapus/proses', [C_Mahasiswa::class, 'prosesHapusMahasiswa']);
 
 Route::get('/api/device/status', [C_API::class, 'cekStatusDevice']);
 
