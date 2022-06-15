@@ -6,6 +6,7 @@ use App\Http\Controllers\C_API;
 use App\Http\Controllers\C_Home;
 use App\Http\Controllers\C_Device;
 use App\Http\Controllers\C_Mahasiswa;
+use App\Http\Controllers\C_History;
 
 Route::get('/', [C_Home::class, 'homepage']);
 Route::get('/beranda', [C_Home::class, 'berandapage']);
