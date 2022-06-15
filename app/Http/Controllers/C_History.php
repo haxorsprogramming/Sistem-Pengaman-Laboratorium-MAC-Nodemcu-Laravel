@@ -8,6 +8,6 @@ class C_History extends Controller
 {
     public function dataHistory()
     {
-        
+
     }
 }

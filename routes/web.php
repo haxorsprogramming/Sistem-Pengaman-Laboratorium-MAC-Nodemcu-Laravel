@@ -22,3 +22,5 @@ Route::get('/api/device/status', [C_API::class, 'cekStatusDevice']);
 
 Route::post('/api/access/id-card/cek', [C_API::class, 'cekAksesIdCard']);
 
+Route::get('/history/data', [C_History::class, 'dataHistory']);
+
