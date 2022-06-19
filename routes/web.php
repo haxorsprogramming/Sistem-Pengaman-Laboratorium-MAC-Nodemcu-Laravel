@@ -12,6 +12,8 @@ Route::get('/', [C_Home::class, 'homepage']);
 Route::get('/beranda', [C_Home::class, 'berandapage']);
 
 Route::post('/device/status/change/proses', [C_Device::class, 'prosesChangeStatusDevice']);
+Route::post('/device/set-read-rf-id',[C_Device::class, 'setReadRFID']);
+Route::post('/device/set-read-rf-id/rollback', [C_Device::class, 'rollBack']);
 
 Route::get('/mahasiswa', [C_Mahasiswa::class, 'dataMahasiswa']);
 Route::get('/mahasiswa/tambah', [C_Mahasiswa::class, 'tambahMahasiswa']);
@@ -22,5 +24,5 @@ Route::get('/api/device/status', [C_API::class, 'cekStatusDevice']);
 
 Route::post('/api/access/id-card/cek', [C_API::class, 'cekAksesIdCard']);
 
-Route::get('/history/data', [C_History::class, 'dataHistory']);
+Route::get('/history', [C_History::class, 'dataHistory']);
 

@@ -29,6 +29,7 @@
             </div>
             <div class="form-group">
                 <label>KD ID CARD</label>
+                <small>Silahkan klik menu "Baca RF ID" di menu utama untuk mendapatkan kd ID Card</small>
                 <input type="text" class="form-control" id="txtIdCard" placeholder="Kode ID Card" />
             </div>
             <div>

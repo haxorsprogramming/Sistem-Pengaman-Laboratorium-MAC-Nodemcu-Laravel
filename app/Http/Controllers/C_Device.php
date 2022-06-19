@@ -22,4 +22,16 @@ class C_Device extends Controller
         $dr = ['status' => 'sukses', 'command' => $command];
         return \Response::json($dr);
     }
+    public function setReadRFID(Request $request)
+    {
+        M_State::where('nama_state', 'STATUS_DEVICE') -> update(['value' => 'READ_CARD']);
+        $dr = ['status' => 'sukses'];
+        return \Response::json($dr);
+    }
+    public function rollBack(Request $request)
+    {
+        M_State::where('nama_state', 'STATUS_DEVICE') -> update(['value' => 'READY']);
+        $dr = ['status' => 'sukses'];
+        return \Response::json($dr);
+    }
 }

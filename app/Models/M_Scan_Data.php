@@ -14,4 +14,10 @@ class M_Scan_Data extends Model
         'waktu_update'
     ];
     public $timestamps = false;
+    
+    public function getIntervalCheckIn()
+    {
+        
+    }
+
 }

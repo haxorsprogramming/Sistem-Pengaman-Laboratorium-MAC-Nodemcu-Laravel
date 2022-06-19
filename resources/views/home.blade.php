@@ -28,7 +28,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="javascript:void(0)" onclick="load_page('')">Home</a></li>
                     <li><a href="javascript:void(0)" onclick="load_page('mahasiswa')">Data Mahasiswa</a></li>
-                    <li><a href="javascript:void(0)">History Akses</a></li>
+                    <li><a href="javascript:void(0)" onclick="load_page('history')">History Akses</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->

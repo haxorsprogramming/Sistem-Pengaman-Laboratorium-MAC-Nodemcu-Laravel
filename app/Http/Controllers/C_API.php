@@ -27,7 +27,8 @@ class C_API extends Controller
         $idCard = $request -> idcard;
         $cekId = M_Mahasiswa::where('kd_id_card', $idCard) -> count();
         if($cekId > 0){
-            return "SUCCESS";
+            $dataMhs = M_Mahasiswa::where('kd_id_card', $idCard) -> first();
+            return $dataMhs -> nama_mahasiswa;
         }else{
             return "NO_ID";
         }

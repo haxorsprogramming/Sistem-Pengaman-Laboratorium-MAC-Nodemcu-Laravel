@@ -1,5 +1,6 @@
 <h3>Data Mahasiswa</h3><br/>
-<a href="javascript:void(0)" class="btn btn-primary" onclick="load_page('mahasiswa/tambah')">Tambah Mahasiswa</a>
+<a href="javascript:void(0)" class="btn btn-primary" onclick="load_page('mahasiswa/tambah')">Tambah Mahasiswa</a><br/><br/>
+<a href="javascript:void(0)" class="btn btn-success" onclick="setBacaRfId()" id="btnBacaRfId">Baca RF ID</a>
 <hr/>
 <div class="row">
     <table class="table table-striped table-hover" id="tblMhs">
@@ -33,12 +34,28 @@
 <script>
 
     var rProsesHapus = server + "mahasiswa/hapus/proses";
+    var rSetBacaRFID = server + "device/set-read-rf-id";
+    var rRollBackBacaRFID = server + "device/set-read-rf-id/rollback";
 
     $("#tblMhs").dataTable();
 
     function hapusProses(kdMhs)
     {
         confirmQuest('info', 'Konfirmasi', 'Hapus mahasiswa ...?', function (x) {hapusConfirm(kdMhs)});
+    }
+
+    function setBacaRfId()
+    {
+        $("#btnBacaRfId").hide();
+        axios.post(rSetBacaRFID).then(function(res){
+            console.log(res.data);
+            pesanUmumApp('success', 'Sukses', 'Sukses mengirim perintah baca ID Card ke perangkat, harap catat kode id card yg muncul untuk penambahan data akses baru ... Halaman akan di reload dalam 7 detik ...');
+        });
+        setTimeout(function(){
+            axios.post(rRollBackBacaRFID).then(function(){
+                load_page('mahasiswa');
+            });
+        }, 8000);
     }
 
     function hapusConfirm(kdMhs)
