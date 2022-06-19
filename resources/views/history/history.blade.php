@@ -12,7 +12,20 @@
             </tr>
         </thead>
         <tbody>
-           
+        @foreach($dataHistory as $history)
+        <tr>
+            <td>{{ $loop -> iteration }}</td>
+            <td>{{ $history -> waktu_update }}</td>
+            <td>{{ $history -> id_card }}</td>
+            <td>{{ $history -> cekIdCardData($history -> id_card) }}</td>
+            @if($history -> cekIdCardData($history -> id_card) == 'tidak ada')
+                <td><b>Tidak Diizinkan</b></td>
+            @else 
+                <td><b>Diizinkan</b></td>
+            @endif
+            
+        </tr>
+        @endforeach
         </tbody>
     </table>
 </div>
