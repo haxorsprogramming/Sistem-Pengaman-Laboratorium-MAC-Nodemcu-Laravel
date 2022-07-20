@@ -23,7 +23,6 @@
             @else 
                 <td><b>Diizinkan</b></td>
             @endif
-            
         </tr>
         @endforeach
         </tbody>
